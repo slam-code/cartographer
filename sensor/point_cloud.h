@@ -23,7 +23,7 @@ Eg..Pi={Xi, Yi, Zi,…….}表示空间中的一个点，
 namespace cartographer {
 namespace sensor {
 
-typedef std::vector<Eigen::Vector3f> PointCloud;//3*1的Vector3f的vector
+typedef std::vector<Eigen::Vector3f> PointCloud;//vector，元素是3*1f
 
 struct PointCloudWithIntensities { //点云+光线强度,{x,y,z}+intensity
   PointCloud points; //3*1的vector
@@ -35,7 +35,7 @@ PointCloud TransformPointCloud(const PointCloud& point_cloud,
                                const transform::Rigid3f& transform);
 
 
-/*剪裁,去掉区域外的点云,返回一个新的点云*/
+/*去掉z轴区域外的点云,返回一个新的点云*/
 // Returns a new point cloud without points that fall outside the region defined
 // by 'min_z' and 'max_z'.
 PointCloud Crop(const PointCloud& point_cloud, float min_z, float max_z);
