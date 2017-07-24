@@ -1,18 +1,3 @@
-/*
- * Copyright 2016 The Cartographer Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 #ifndef CARTOGRAPHER_SENSOR_COMPRESSED_POINT_CLOUD_H_
 #define CARTOGRAPHER_SENSOR_COMPRESSED_POINT_CLOUD_H_
@@ -30,7 +15,10 @@ namespace sensor {
 
 /*
 CompressedPointCloud是点云压缩类,
+目的：压缩ponits，压缩后有精度损失
+方法：block。
 
+只有一个私有的
 */
 // A compressed representation of a point cloud consisting of a collection of
 // points (Vector3f).
@@ -39,7 +27,7 @@ CompressedPointCloud是点云压缩类,
 // point with a fixed bit rate in relation to the block.
 class CompressedPointCloud {
  public:
-  class ConstIterator;
+  class ConstIterator; //前置声明
 
   CompressedPointCloud() : num_points_(0) {}
   explicit CompressedPointCloud(const PointCloud& point_cloud);
@@ -48,7 +36,7 @@ class CompressedPointCloud {
   PointCloud Decompress() const;
 
   bool empty() const;                   // num_points_==0
-  size_t size() const;                  //num_points_
+  size_t size() const;                  // num_points_
   ConstIterator begin() const;
   ConstIterator end() const;
 

@@ -36,7 +36,7 @@ message CompressedPointCloud { //压缩:点云数量+点云值
 
 // Proto representation of ::cartographer::sensor::RangeData
 message RangeData {             
-  optional transform.proto.Vector3f origin = 1;
+  optional transform.proto.Vector3f origin = 1;//sensor坐标
   optional PointCloud point_cloud = 2;
   optional PointCloud missing_echo_point_cloud = 3;
 }

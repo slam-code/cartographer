@@ -47,7 +47,7 @@ LuaParameterDictionary类继承自FileResolver,
 
 1,构造函数从file_resolver中加载一个带lua table的字典dictionary
 2,
-
+code是以字符串代表的lua代码code
 
 */
 // A parameter dictionary that gets loaded from Lua code.

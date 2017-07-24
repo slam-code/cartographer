@@ -1,18 +1,3 @@
-/*
- * Copyright 2016 The Cartographer Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 #ifndef CARTOGRAPHER_SENSOR_VOXEL_FILTER_H_
 #define CARTOGRAPHER_SENSOR_VOXEL_FILTER_H_
@@ -23,15 +8,30 @@
 #include "cartographer/sensor/proto/adaptive_voxel_filter_options.pb.h"
 
 /*
+
+message AdaptiveVoxelFilterOptions { 
+  optional float max_length = 1; 
+  optional float min_num_points = 2;
+  optional float max_range = 3;
+}
+
+2d:
+adaptive_voxel_filter = {
+      max_length = 0.9,     //voxel_的大小edge的最大值
+      min_num_points = 100, //voxel_最多“占据”的points数量
+      max_range = 50.,
+    },
+
+
 Voxel, 三维像素,体素
-http://blog.csdn.net/bugrunner/article/details/5527332
+3D模型体素化：http://blog.csdn.net/bugrunner/article/details/5527332
 
  */
 namespace cartographer {
 namespace sensor {
 
 
-//返回过滤后的点云
+//返回过滤后的点云,size是体素的长度。
 // Returns a voxel filtered copy of 'point_cloud' where 'size' is the length
 // a voxel edge.
 PointCloud VoxelFiltered(const PointCloud& point_cloud, float size);
@@ -39,7 +39,7 @@ PointCloud VoxelFiltered(const PointCloud& point_cloud, float size);
 
 /*
 
-体素滤波器,对每一个体素,插入点云 组合
+体素滤波器,对每一个体素voxel,采用第一个point代替所有的points
 
 VoxelFilter:不可拷贝/不可赋值
 默认构造函数指定体素边界大小
