@@ -33,7 +33,7 @@ constexpr int64 kUtsEpochOffsetFromUnixEpochInSeconds =
 
 struct UniversalTimeScaleClock {
   using rep = int64;
-  using period = std::ratio<1, 10000000>; //百万分之一秒,1us 》错了，应该是0.1us.
+  using period = std::ratio<1, 10000000>; //百万分之一秒,1us --》错了，应该是0.1us.
   //以下涉及到us的均应该纠正为0.1us
 
   using duration = std::chrono::duration<rep, period>;
