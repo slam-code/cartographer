@@ -58,15 +58,17 @@ class VoxelFilter {
   VoxelFilter(const VoxelFilter&) = delete;
   VoxelFilter& operator=(const VoxelFilter&) = delete;
 
+  //将点云插入体素网格中
   // Inserts a point cloud into the voxel filter.
   void InsertPointCloud(const PointCloud& point_cloud);
 
+  //返回表达occupied 体素的点云
   // Returns the filtered point cloud representing the occupied voxels.
   const PointCloud& point_cloud() const;
 
  private:
-  mapping_3d::HybridGridBase<uint8> voxels_;
-  PointCloud point_cloud_;
+  mapping_3d::HybridGridBase<uint8> voxels_;//以体素表示的网格，Grid/Pixel
+  PointCloud point_cloud_;  //网格内的点云
 };
 
 /*
@@ -78,12 +80,14 @@ proto::AdaptiveVoxelFilterOptions CreateAdaptiveVoxelFilterOptions(
 
 class AdaptiveVoxelFilter {
  public:
+  //根据配置文件设置自适应体素滤波的options
   explicit AdaptiveVoxelFilter(
       const proto::AdaptiveVoxelFilterOptions& options);
 
   AdaptiveVoxelFilter(const AdaptiveVoxelFilter&) = delete;
   AdaptiveVoxelFilter& operator=(const AdaptiveVoxelFilter&) = delete;
 
+  //对点云进行体素滤波,返回过滤后的点云
   PointCloud Filter(const PointCloud& point_cloud) const;
 
  private:

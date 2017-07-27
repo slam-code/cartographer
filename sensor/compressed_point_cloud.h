@@ -15,8 +15,8 @@ namespace sensor {
 
 /*
 CompressedPointCloud是点云压缩类,
-目的：压缩ponits，压缩后有精度损失
-方法：block。
+目的：压缩ponits以减少存储空间，压缩后有精度损失。
+方法：按照block分组。
 
 只有一个私有的
 */

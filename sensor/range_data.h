@@ -23,8 +23,8 @@ RangeData:
 // between the 'origin' and 'misses' is free space.
 struct RangeData {
   Eigen::Vector3f origin;//{x0,y0,z0},sensor坐标。
-  PointCloud returns;    //{x,y,z}，表征有物体反射。
-  PointCloud misses;     //无物体,自由空间
+  PointCloud returns;    //反射位置{x,y,z}，表征有物体反射。
+  PointCloud misses;     //无反射,自由空间
 };
 
 // Converts 'range_data' to a proto::RangeData. 序列化

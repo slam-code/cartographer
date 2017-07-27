@@ -65,13 +65,13 @@ class OrderedMultiQueue {
   ~OrderedMultiQueue();
 
 
-//添加一个队列Queue,名称是key,入队的data，调用回调函数处理
+//添加一个【队列】Queue,名称是key,以后入队的data，调用回调函数callback处理
   // Adds a new queue with key 'queue_key' which must not already exist.
   // 'callback' will be called whenever data from this queue can be dispatched.
   void AddQueue(const QueueKey& queue_key, Callback callback);
 
 /*
-某一key标识的Queue已经完成入队,因此不能再入队列,并在map中移除key.
+某一key标识的【队列】Queue已经完成入队,因此不能再入队列,并在map中移除key.
 */
   // Marks a queue as finished, i.e. no further data can be added. The queue
   // will be removed once the last piece of data from it has been dispatched.

@@ -17,6 +17,8 @@ namespace sensor {
 
 /*
 Collator,采集者，校对者，整理者
+将多传感器采集的数据归并到轨迹上。
+
 Collator类:不可拷贝,不可赋值.
 只有一个默认构造函数.
 有2个数据成员
@@ -82,6 +84,7 @@ class Collator {
   int GetBlockingTrajectoryId() const;
 
  private:
+  //多个key构成的多队列
   // Queue keys are a pair of trajectory ID and sensor identifier.
   OrderedMultiQueue queue_;
   

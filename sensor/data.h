@@ -38,16 +38,17 @@ struct Data {
 //测距仪.基本原理是向待测距的物体发射激光脉冲并开始计时，接收到反射光时停止计时。这段时间即可以转换为激光器与目标之间的距离。
   struct Rangefinder {
     Eigen::Vector3f origin; //sensor的位姿
-    PointCloud ranges;
+    PointCloud ranges;      //测距点云
   };
 
-  Data(const common::Time time, const Imu& imu)
+  Data(const common::Time time, const Imu& imu) //传感器类型是imu
       : type(Type::kImu), time(time), imu(imu) {}
 
-  Data(const common::Time time, const Rangefinder& rangefinder)
+  Data(const common::Time time, const Rangefinder& rangefinder)//传感器类型是雷达
       : type(Type::kRangefinder), time(time), rangefinder(rangefinder) {}
 
   Data(const common::Time time, const transform::Rigid3d& odometer_pose)
+  //传感器类型是里程计
       : type(Type::kOdometer), time(time), odometer_pose(odometer_pose) {}
 
   Type type;

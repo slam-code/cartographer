@@ -19,6 +19,10 @@
 Eg..Pi={Xi, Yi, Zi,…….}表示空间中的一个点，
 则Point Cloud={P1, P2, P3,…..Pn}表示一组点云数据。
 
+cartographer的PointCloud是由Vector3f组成的vector。
+PointCloudWithIntensities则是由点云和光线强度组成的struct类。
+
+
 */
 namespace cartographer {
 namespace sensor {
