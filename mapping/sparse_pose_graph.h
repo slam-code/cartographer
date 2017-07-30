@@ -37,7 +37,7 @@ class SparsePoseGraph {
 
   struct Constraint { //约束
     struct Pose {
-      transform::Rigid3d zbar_ij;
+      transform::Rigid3d zbar_ij; //paper-公式(2)
       double translation_weight;
       double rotation_weight;
     };

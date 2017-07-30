@@ -114,10 +114,12 @@ class Submaps {
 
   // Returns the index of the newest initialized Submap which can be
   // used for scan-to-map matching.
+  // size() - 2;
   int matching_index() const;//最新的初始化的子图索引，用于scan-to-map-match
 
   // Returns the indices of the Submap into which point clouds will
   // be inserted.
+  // {size() - 2, size() - 1};
   std::vector<int> insertion_indices() const;//待插入的子图的索引
 
   // Returns the Submap with the given 'index'. The same 'index' will always
