@@ -8,9 +8,9 @@
 
 * 我的微信公众号:slamcode        (首发)
 
-* https://zhuanlan.zhihu.com/learnmoreonce (简略)
+* [知乎](https://zhuanlan.zhihu.com/learnmoreonce) (简略)
  
-* http://blog.csdn.net/learnmoreonce       (详细)
+* [CSDN](http://blog.csdn.net/learnmoreonce)       (详细)
 
 
 
