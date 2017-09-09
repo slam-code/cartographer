@@ -16,7 +16,7 @@ namespace io {
 using Color = std::array<uint8_t, 3>;
 
 /*
-PointsBatch类是对多个点云point的抽象.这些point在由同一时刻,同一机器人坐标地点的传感器采集而得。
+PointsBatch类是对多个点云point的抽象.这些point在由“同一时刻”,“同一机器人坐标地点”的传感器采集而得。
 数据成员主要描述了point的特性.
 
 1,time:point采集时间.
